@@ -156,6 +156,7 @@ export class JwtTokenGenerator implements TokenGenerator {
       username: user.Username,
     };
     let idToken: RawToken = {
+      ...attributesToRecord(user.Attributes),
       "cognito:username": user.Username,
       auth_time: authTime,
       email: attributeValue("email", user.Attributes),
@@ -166,8 +167,7 @@ export class JwtTokenGenerator implements TokenGenerator {
       iat: authTime,
       jti: uuid.v4(),
       sub,
-      token_use: "id",
-      ...attributesToRecord(user.Attributes),
+      token_use: "id"
     };
 
     if (userGroups.length) {
