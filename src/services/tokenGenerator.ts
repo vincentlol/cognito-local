@@ -167,7 +167,7 @@ export class JwtTokenGenerator implements TokenGenerator {
       jti: uuid.v4(),
       sub,
       token_use: "id",
-      ...attributesToRecord(customAttributes(user.Attributes)),
+      ...attributesToRecord(user.Attributes),
     };
 
     if (userGroups.length) {
