@@ -129,7 +129,7 @@ export const AdminCreateUser =
     }
 
     const user: User = {
-      Username: req.Username,
+      Username: attributeValue("sub", attributes),
       Password: temporaryPassword,
       Attributes: attributes,
       Enabled: true,
